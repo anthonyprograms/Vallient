@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		62BA4FBD2FBCB01EC8A86BA5 /* Pods_Vallient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74B9C696D47BD71DD9DC076 /* Pods_Vallient.framework */; };
+		9215BF2F1D1FC357005FF212 /* VALFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF2E1D1FC357005FF212 /* VALFilterViewController.swift */; };
+		9215BF341D205D80005FF212 /* VALCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF331D205D80005FF212 /* VALCoreDataStack.swift */; };
+		9215BF371D2064A4005FF212 /* Companies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF351D2064A4005FF212 /* Companies.xcdatamodeld */; };
+		9215BF3A1D20681B005FF212 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF381D20681B005FF212 /* Company+CoreDataProperties.swift */; };
+		9215BF3B1D20681B005FF212 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF391D20681B005FF212 /* Company.swift */; };
+		9295C6231D177349001351CF /* VALMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295C6221D177349001351CF /* VALMapAnnotation.swift */; };
+		92C9B4941D15D8320031CF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4931D15D8320031CF55 /* AppDelegate.swift */; };
+		92C9B4961D15D8320031CF55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4951D15D8320031CF55 /* ViewController.swift */; };
+		92C9B4991D15D8320031CF55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C9B4971D15D8320031CF55 /* Main.storyboard */; };
+		92C9B49B1D15D8320031CF55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C9B49A1D15D8320031CF55 /* Assets.xcassets */; };
+		92C9B49E1D15D8320031CF55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C9B49C1D15D8320031CF55 /* LaunchScreen.storyboard */; };
+		92C9B4A61D15EB0D0031CF55 /* VALTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4A51D15EB0D0031CF55 /* VALTableView.swift */; };
+		92C9B4AA1D161AA90031CF55 /* VALCompanyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4A91D161AA90031CF55 /* VALCompanyDetailView.swift */; };
+		92C9B4AC1D163C8D0031CF55 /* VALCompanyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4AB1D163C8D0031CF55 /* VALCompanyImageCell.swift */; };
+		92C9B4AE1D174E200031CF55 /* VALHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4AD1D174E200031CF55 /* VALHTTPClient.swift */; };
+		92D819F81D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819F71D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift */; };
+		92D819FA1D2B573300FBFB14 /* VALFilterDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819F91D2B573300FBFB14 /* VALFilterDefaults.swift */; };
+		92D819FC1D2B751200FBFB14 /* VALCompanyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819FB1D2B751200FBFB14 /* VALCompanyCache.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46C8B61AB13E2232E110EF03 /* Pods-Vallient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vallient.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vallient/Pods-Vallient.release.xcconfig"; sourceTree = "<group>"; };
+		76D98300BA7C3AA69998C4CE /* Pods-Vallient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vallient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vallient/Pods-Vallient.debug.xcconfig"; sourceTree = "<group>"; };
+		9215BF2E1D1FC357005FF212 /* VALFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALFilterViewController.swift; sourceTree = "<group>"; };
+		9215BF331D205D80005FF212 /* VALCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCoreDataStack.swift; sourceTree = "<group>"; };
+		9215BF361D2064A4005FF212 /* Companies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Companies.xcdatamodel; sourceTree = "<group>"; };
+		9215BF381D20681B005FF212 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9215BF391D20681B005FF212 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		9295C6221D177349001351CF /* VALMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALMapAnnotation.swift; sourceTree = "<group>"; };
+		92C9B4901D15D8320031CF55 /* Vallient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vallient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92C9B4931D15D8320031CF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92C9B4951D15D8320031CF55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92C9B4981D15D8320031CF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92C9B49A1D15D8320031CF55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92C9B49D1D15D8320031CF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92C9B49F1D15D8320031CF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92C9B4A51D15EB0D0031CF55 /* VALTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALTableView.swift; sourceTree = "<group>"; };
+		92C9B4A91D161AA90031CF55 /* VALCompanyDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCompanyDetailView.swift; sourceTree = "<group>"; };
+		92C9B4AB1D163C8D0031CF55 /* VALCompanyImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCompanyImageCell.swift; sourceTree = "<group>"; };
+		92C9B4AD1D174E200031CF55 /* VALHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALHTTPClient.swift; sourceTree = "<group>"; };
+		92D819F71D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALRelatedCompanyCollectionViewCell.swift; sourceTree = "<group>"; };
+		92D819F91D2B573300FBFB14 /* VALFilterDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALFilterDefaults.swift; sourceTree = "<group>"; };
+		92D819FB1D2B751200FBFB14 /* VALCompanyCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCompanyCache.swift; sourceTree = "<group>"; };
+		D74B9C696D47BD71DD9DC076 /* Pods_Vallient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vallient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92C9B48D1D15D8310031CF55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62BA4FBD2FBCB01EC8A86BA5 /* Pods_Vallient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52658617877E60D5881AB706 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76D98300BA7C3AA69998C4CE /* Pods-Vallient.debug.xcconfig */,
+				46C8B61AB13E2232E110EF03 /* Pods-Vallient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		53C6DFEC7778C0D2CF223DF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D74B9C696D47BD71DD9DC076 /* Pods_Vallient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9215BF301D1FC361005FF212 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				9215BF2E1D1FC357005FF212 /* VALFilterViewController.swift */,
+			);
+			name = Filter;
+			sourceTree = "<group>";
+		};
+		9215BF3C1D206845005FF212 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9215BF331D205D80005FF212 /* VALCoreDataStack.swift */,
+				9215BF381D20681B005FF212 /* Company+CoreDataProperties.swift */,
+				9215BF391D20681B005FF212 /* Company.swift */,
+				9215BF351D2064A4005FF212 /* Companies.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		928E27B81D1F1B7B00F75EF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92D819F91D2B573300FBFB14 /* VALFilterDefaults.swift */,
+				92C9B4AD1D174E200031CF55 /* VALHTTPClient.swift */,
+				92D819FB1D2B751200FBFB14 /* VALCompanyCache.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		928E27B91D1F1B9C00F75EF3 /* Company Details */ = {
+			isa = PBXGroup;
+			children = (
+				92C9B4A91D161AA90031CF55 /* VALCompanyDetailView.swift */,
+				92D819F71D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift */,
+				92C9B4A51D15EB0D0031CF55 /* VALTableView.swift */,
+				92C9B4AB1D163C8D0031CF55 /* VALCompanyImageCell.swift */,
+			);
+			name = "Company Details";
+			sourceTree = "<group>";
+		};
+		92C9B4871D15D8310031CF55 = {
+			isa = PBXGroup;
+			children = (
+				92C9B4921D15D8320031CF55 /* Vallient */,
+				92C9B4911D15D8320031CF55 /* Products */,
+				52658617877E60D5881AB706 /* Pods */,
+				53C6DFEC7778C0D2CF223DF7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		92C9B4911D15D8320031CF55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92C9B4901D15D8320031CF55 /* Vallient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92C9B4921D15D8320031CF55 /* Vallient */ = {
+			isa = PBXGroup;
+			children = (
+				92C9B4931D15D8320031CF55 /* AppDelegate.swift */,
+				92C9B4951D15D8320031CF55 /* ViewController.swift */,
+				9295C6221D177349001351CF /* VALMapAnnotation.swift */,
+				9215BF301D1FC361005FF212 /* Filter */,
+				928E27B91D1F1B9C00F75EF3 /* Company Details */,
+				928E27B81D1F1B7B00F75EF3 /* Model */,
+				9215BF3C1D206845005FF212 /* Core Data */,
+				92C9B4971D15D8320031CF55 /* Main.storyboard */,
+				92C9B49A1D15D8320031CF55 /* Assets.xcassets */,
+				92C9B49C1D15D8320031CF55 /* LaunchScreen.storyboard */,
+				92C9B49F1D15D8320031CF55 /* Info.plist */,
+			);
+			path = Vallient;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92C9B48F1D15D8310031CF55 /* Vallient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92C9B4A21D15D8320031CF55 /* Build configuration list for PBXNativeTarget "Vallient" */;
+			buildPhases = (
+				21C83DFA11414CB4DEC6003D /* Check Pods Manifest.lock */,
+				92C9B48C1D15D8310031CF55 /* Sources */,
+				92C9B48D1D15D8310031CF55 /* Frameworks */,
+				92C9B48E1D15D8310031CF55 /* Resources */,
+				E036DBB64CA5F3EA045B0AA2 /* Embed Pods Frameworks */,
+				E5F2E566EC2198A0171F11D7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vallient;
+			productName = Vallient;
+			productReference = 92C9B4901D15D8320031CF55 /* Vallient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92C9B4881D15D8310031CF55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Anthony Williams";
+				TargetAttributes = {
+					92C9B48F1D15D8310031CF55 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 92C9B48B1D15D8310031CF55 /* Build configuration list for PBXProject "Vallient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92C9B4871D15D8310031CF55;
+			productRefGroup = 92C9B4911D15D8320031CF55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92C9B48F1D15D8310031CF55 /* Vallient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92C9B48E1D15D8310031CF55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C9B49E1D15D8320031CF55 /* LaunchScreen.storyboard in Resources */,
+				92C9B49B1D15D8320031CF55 /* Assets.xcassets in Resources */,
+				92C9B4991D15D8320031CF55 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21C83DFA11414CB4DEC6003D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E036DBB64CA5F3EA045B0AA2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vallient/Pods-Vallient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5F2E566EC2198A0171F11D7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vallient/Pods-Vallient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92C9B48C1D15D8310031CF55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C9B4961D15D8320031CF55 /* ViewController.swift in Sources */,
+				9215BF3A1D20681B005FF212 /* Company+CoreDataProperties.swift in Sources */,
+				9215BF2F1D1FC357005FF212 /* VALFilterViewController.swift in Sources */,
+				92C9B4941D15D8320031CF55 /* AppDelegate.swift in Sources */,
+				92C9B4AA1D161AA90031CF55 /* VALCompanyDetailView.swift in Sources */,
+				92C9B4AE1D174E200031CF55 /* VALHTTPClient.swift in Sources */,
+				9215BF341D205D80005FF212 /* VALCoreDataStack.swift in Sources */,
+				92D819F81D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift in Sources */,
+				9295C6231D177349001351CF /* VALMapAnnotation.swift in Sources */,
+				9215BF371D2064A4005FF212 /* Companies.xcdatamodeld in Sources */,
+				9215BF3B1D20681B005FF212 /* Company.swift in Sources */,
+				92D819FA1D2B573300FBFB14 /* VALFilterDefaults.swift in Sources */,
+				92C9B4A61D15EB0D0031CF55 /* VALTableView.swift in Sources */,
+				92C9B4AC1D163C8D0031CF55 /* VALCompanyImageCell.swift in Sources */,
+				92D819FC1D2B751200FBFB14 /* VALCompanyCache.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		92C9B4971D15D8320031CF55 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92C9B4981D15D8320031CF55 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92C9B49C1D15D8320031CF55 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92C9B49D1D15D8320031CF55 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92C9B4A01D15D8320031CF55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92C9B4A11D15D8320031CF55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92C9B4A31D15D8320031CF55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76D98300BA7C3AA69998C4CE /* Pods-Vallient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Vallient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AW.Vallient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		92C9B4A41D15D8320031CF55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46C8B61AB13E2232E110EF03 /* Pods-Vallient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Vallient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AW.Vallient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92C9B48B1D15D8310031CF55 /* Build configuration list for PBXProject "Vallient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92C9B4A01D15D8320031CF55 /* Debug */,
+				92C9B4A11D15D8320031CF55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92C9B4A21D15D8320031CF55 /* Build configuration list for PBXNativeTarget "Vallient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92C9B4A31D15D8320031CF55 /* Debug */,
+				92C9B4A41D15D8320031CF55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9215BF351D2064A4005FF212 /* Companies.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9215BF361D2064A4005FF212 /* Companies.xcdatamodel */,
+			);
+			currentVersion = 9215BF361D2064A4005FF212 /* Companies.xcdatamodel */;
+			path = Companies.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 92C9B4881D15D8310031CF55 /* Project object */;
+}
