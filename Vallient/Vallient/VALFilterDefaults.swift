@@ -9,6 +9,15 @@
 import Foundation
 
 class VALFilterDefaults {
+    
+    class func saveFilters(cityFilters: NSMutableArray, valuationFilters: NSMutableArray, statusFilters: NSMutableArray) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(cityFilters, forKey: "CityFilters")
+        defaults.setObject(valuationFilters, forKey: "ValuationFilters")
+        defaults.setObject(statusFilters, forKey: "StatusFilters")
+        defaults.synchronize()
+    }
+    
     class func getFilters(key: String) -> NSMutableArray? {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let filters = defaults.objectForKey(key) as? NSMutableArray {
@@ -40,6 +49,10 @@ class VALFilterDefaults {
     
     class func predicateFromFilters() -> NSCompoundPredicate? {
         var filters: [NSPredicate] = []
+        var compoundPredicate1: NSCompoundPredicate
+        var compoundPredicate2: NSCompoundPredicate
+        var compoundPredicate3: NSCompoundPredicate
+        var subPredicates: [NSCompoundPredicate] = []
 
         if let cityFilters = VALFilterDefaults.getFilters("CityFilters") {
             for city in cityFilters {
@@ -47,24 +60,36 @@ class VALFilterDefaults {
                     filters.append(NSPredicate(format: "city == %@", city))
                 }
             }
+            compoundPredicate1 = NSCompoundPredicate(orPredicateWithSubpredicates: filters)
+            subPredicates.append(compoundPredicate1)
         }
+        
+        filters = []
+        
         if let valuationFilters = VALFilterDefaults.getFilters("ValuationFilters") {
             for valuation in valuationFilters {
                 if let valuation = valuation as? String {
                     filters.append(NSPredicate(format: "valuation == %@", valuation))
                 }
             }
+            compoundPredicate2 = NSCompoundPredicate(orPredicateWithSubpredicates: filters)
+            subPredicates.append(compoundPredicate2)
         }
+        
+        filters = []
+        
         if let statusFilters = VALFilterDefaults.getFilters("StatusFilters") {
             for status in statusFilters {
                 if let status = status as? String {
                     filters.append(NSPredicate(format: "status == %@", status))
                 }
             }
+            compoundPredicate3 = NSCompoundPredicate(orPredicateWithSubpredicates: filters)
+            subPredicates.append(compoundPredicate3)
         }
-        if filters.count > 0 {
-            let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: filters)
-            return compoundPredicate
+        
+        if subPredicates.count > 0 {
+            return NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
         }
         
         return nil

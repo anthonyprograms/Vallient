@@ -55,11 +55,7 @@ class VALFilterViewController: UIViewController {
     }
     
     func applyFilters() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(cityFilters, forKey: "CityFilters")
-        defaults.setObject(valuationFilters, forKey: "ValuationFilters")
-        defaults.setObject(statusFilters, forKey: "StatusFilters")
-        defaults.synchronize()
+        VALFilterDefaults.saveFilters(cityFilters, valuationFilters: valuationFilters, statusFilters: statusFilters)
         
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -87,6 +83,8 @@ extension VALFilterViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .None
         
         if indexPath.section == 0 {
+            // Remove current check mark
+            // Place on new place
             cell.textLabel?.text = city[indexPath.row]
             
             if cityFilters.containsObject(city[indexPath.row]) {
@@ -114,26 +112,26 @@ extension VALFilterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
+        if tableView.cellForRowAtIndexPath(indexPath)?.accessoryType == .Checkmark {
+            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
+        } else {
+            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
+        }
         
         if indexPath.section == 0 {
-            cityFilters.addObject(city[indexPath.row])
+            toggleFilter(cityFilters, object: city[indexPath.row])
         } else if indexPath.section == 1 {
-            valuationFilters.addObject(valuation[indexPath.row])
+            toggleFilter(valuationFilters, object: valuation[indexPath.row])
         } else {
-            statusFilters.addObject(status[indexPath.row])
+            toggleFilter(statusFilters, object: status[indexPath.row])
         }
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
-        
-        if indexPath.section == 0 {
-            cityFilters.removeObject(city[indexPath.row])
-        } else if indexPath.section == 1 {
-            valuationFilters.removeObject(valuation[indexPath.row])
+    func toggleFilter(filters: NSMutableArray, object: String) {
+        if filters.containsObject(object) {
+            filters.removeObject(object)
         } else {
-            statusFilters.removeObject(status[indexPath.row])
+            filters.addObject(object)
         }
     }
 }
