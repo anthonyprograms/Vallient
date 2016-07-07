@@ -27,9 +27,10 @@ class VALRelatedCompanyCollectionViewCell: UICollectionViewCell {
     
     func setupCell(imageUrl: String) {
         imageView = UIImageView(frame: self.bounds)
-//        if let url = NSURL(string: imageUrl) {
-//            imageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "sv"))
-//        }
+        imageView.contentMode = .ScaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
+        imageView.autoresizingMask = .None
         contentView.addSubview(imageView)
     }
     

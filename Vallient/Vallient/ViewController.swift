@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 25/255, green: 201/255, blue: 108/255, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor.vallientPrimaryColor()
         self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
         initNavigationItemTitleView()
         
@@ -75,10 +75,11 @@ class ViewController: UIViewController {
         view.addSubview(mapView)
     
         tableView.frame = view.bounds
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.registerClass(VALBasicInfoCell.self, forCellReuseIdentifier: "Cell")
         tableView.backgroundColor = UIColor.clearColor()
         tableView.separatorColor = UIColor.clearColor()
         tableView.showsVerticalScrollIndicator = false
+        tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -146,29 +147,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
-        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        var cell: VALBasicInfoCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! VALBasicInfoCell
+        cell = VALBasicInfoCell(style: .Default, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = "\(companies[indexPath.row]["name"]!)"
-        cell.detailTextLabel?.text = "\(companies[indexPath.row]["address"]!)"
-        cell.detailTextLabel?.numberOfLines = 0
+        cell.nameLabel.text = "\(companies[indexPath.row]["name"]!)"
+        cell.addressLabel.text = "\(companies[indexPath.row]["address"]!)"
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if let imageUrl = self.companies[indexPath.row]["imageUrl"] as? String {
                 if let url = NSURL(string: imageUrl) {
                     dispatch_async(dispatch_get_main_queue()) {
-                        cell.imageView?.kf_setImageWithURL(url, placeholderImage: UIImage(named: "vallient.png"))
-                        cell.setNeedsLayout()
+                        cell.logoImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "vallient.png"))
                     }
                 }
             }
         }
         
         return cell
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -179,6 +174,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                     companyDetailView.center = view.center
                     companyDetailView.delegate = self
                     view.addSubview(companyDetailView)
+                    
                     self.navigationController?.navigationBarHidden = true
                 }
             }

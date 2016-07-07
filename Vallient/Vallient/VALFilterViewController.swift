@@ -25,7 +25,7 @@ class VALFilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.vallientPrimaryColor()
         
         initTableView()
     }
@@ -66,6 +66,20 @@ extension VALFilterViewController: UITableViewDelegate, UITableViewDataSource {
         return itemSections.count
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 40))
+        headerView.backgroundColor = UIColor.vallientPrimaryColor()
+        
+        let textLabel = UILabel(frame: headerView.frame)
+        textLabel.text = itemSections[section]
+        textLabel.textColor = UIColor.whiteColor()
+        textLabel.font = UIFont(name: "Helvetica-Bold", size: 24)
+        textLabel.textAlignment = .Center
+        headerView.addSubview(textLabel)
+        
+        return headerView
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return city.count
@@ -81,6 +95,7 @@ extension VALFilterViewController: UITableViewDelegate, UITableViewDataSource {
         cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
         cell.selectionStyle = .None
+        cell.backgroundColor = .clearColor()
         
         if indexPath.section == 0 {
             // Remove current check mark

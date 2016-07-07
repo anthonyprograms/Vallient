@@ -26,6 +26,8 @@
 		92D819F81D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819F71D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift */; };
 		92D819FA1D2B573300FBFB14 /* VALFilterDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819F91D2B573300FBFB14 /* VALFilterDefaults.swift */; };
 		92D819FC1D2B751200FBFB14 /* VALCompanyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819FB1D2B751200FBFB14 /* VALCompanyCache.swift */; };
+		92D819FE1D2CC11300FBFB14 /* UIColor+Vallient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D819FD1D2CC11300FBFB14 /* UIColor+Vallient.swift */; };
+		92D81A011D2CCA8900FBFB14 /* VALBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D81A001D2CCA8900FBFB14 /* VALBasicInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		92D819F71D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALRelatedCompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		92D819F91D2B573300FBFB14 /* VALFilterDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALFilterDefaults.swift; sourceTree = "<group>"; };
 		92D819FB1D2B751200FBFB14 /* VALCompanyCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCompanyCache.swift; sourceTree = "<group>"; };
+		92D819FD1D2CC11300FBFB14 /* UIColor+Vallient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Vallient.swift"; sourceTree = "<group>"; };
+		92D81A001D2CCA8900FBFB14 /* VALBasicInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALBasicInfoCell.swift; sourceTree = "<group>"; };
 		D74B9C696D47BD71DD9DC076 /* Pods_Vallient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vallient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,7 +121,6 @@
 			children = (
 				92C9B4A91D161AA90031CF55 /* VALCompanyDetailView.swift */,
 				92D819F71D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift */,
-				92C9B4A51D15EB0D0031CF55 /* VALTableView.swift */,
 				92C9B4AB1D163C8D0031CF55 /* VALCompanyImageCell.swift */,
 			);
 			name = "Company Details";
@@ -146,10 +149,13 @@
 			children = (
 				92C9B4931D15D8320031CF55 /* AppDelegate.swift */,
 				92C9B4951D15D8320031CF55 /* ViewController.swift */,
+				92D81A001D2CCA8900FBFB14 /* VALBasicInfoCell.swift */,
+				92C9B4A51D15EB0D0031CF55 /* VALTableView.swift */,
 				9295C6221D177349001351CF /* VALMapAnnotation.swift */,
 				9215BF301D1FC361005FF212 /* Filter */,
 				928E27B91D1F1B9C00F75EF3 /* Company Details */,
 				928E27B81D1F1B7B00F75EF3 /* Model */,
+				92D819FF1D2CC12000FBFB14 /* Extensinos */,
 				9215BF3C1D206845005FF212 /* Core Data */,
 				92C9B4971D15D8320031CF55 /* Main.storyboard */,
 				92C9B49A1D15D8320031CF55 /* Assets.xcassets */,
@@ -157,6 +163,14 @@
 				92C9B49F1D15D8320031CF55 /* Info.plist */,
 			);
 			path = Vallient;
+			sourceTree = "<group>";
+		};
+		92D819FF1D2CC12000FBFB14 /* Extensinos */ = {
+			isa = PBXGroup;
+			children = (
+				92D819FD1D2CC11300FBFB14 /* UIColor+Vallient.swift */,
+			);
+			name = Extensinos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +303,10 @@
 				92C9B4AE1D174E200031CF55 /* VALHTTPClient.swift in Sources */,
 				9215BF341D205D80005FF212 /* VALCoreDataStack.swift in Sources */,
 				92D819F81D2B09E900FBFB14 /* VALRelatedCompanyCollectionViewCell.swift in Sources */,
+				92D819FE1D2CC11300FBFB14 /* UIColor+Vallient.swift in Sources */,
 				9295C6231D177349001351CF /* VALMapAnnotation.swift in Sources */,
 				9215BF371D2064A4005FF212 /* Companies.xcdatamodeld in Sources */,
+				92D81A011D2CCA8900FBFB14 /* VALBasicInfoCell.swift in Sources */,
 				9215BF3B1D20681B005FF212 /* Company.swift in Sources */,
 				92D819FA1D2B573300FBFB14 /* VALFilterDefaults.swift in Sources */,
 				92C9B4A61D15EB0D0031CF55 /* VALTableView.swift in Sources */,
