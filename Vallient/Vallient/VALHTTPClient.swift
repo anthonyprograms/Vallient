@@ -21,4 +21,22 @@ class VALHTTPClient: NSObject {
                 }
         }
     }
+    
+    func getAllEvents(completion: (data: AnyObject) -> ()) {
+        Alamofire.request(.GET, "\(domain)/api/event", parameters: nil)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    completion(data: JSON)
+                }
+        }
+    }
+    
+    func getEventsByCompanyName(companyName: String, completion: (data: AnyObject) -> ()) {
+        Alamofire.request(.GET, "\(domain)/api/event", parameters: nil)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    completion(data: JSON)
+                }
+        }
+    }
 }

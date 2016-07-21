@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		62BA4FBD2FBCB01EC8A86BA5 /* Pods_Vallient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74B9C696D47BD71DD9DC076 /* Pods_Vallient.framework */; };
+		92014A401D3B2F2500A5EE66 /* VALCompanyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92014A3F1D3B2F2500A5EE66 /* VALCompanyEventsViewController.swift */; };
+		92014A441D3B319300A5EE66 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92014A421D3B319300A5EE66 /* Event+CoreDataProperties.swift */; };
+		92014A451D3B319300A5EE66 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92014A431D3B319300A5EE66 /* Event.swift */; };
+		92014A491D3B4E1E00A5EE66 /* VALMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92014A481D3B4E1E00A5EE66 /* VALMethods.swift */; };
 		9215BF2F1D1FC357005FF212 /* VALFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF2E1D1FC357005FF212 /* VALFilterViewController.swift */; };
 		9215BF341D205D80005FF212 /* VALCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF331D205D80005FF212 /* VALCoreDataStack.swift */; };
 		9215BF371D2064A4005FF212 /* Companies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF351D2064A4005FF212 /* Companies.xcdatamodeld */; };
 		9215BF3A1D20681B005FF212 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF381D20681B005FF212 /* Company+CoreDataProperties.swift */; };
 		9215BF3B1D20681B005FF212 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BF391D20681B005FF212 /* Company.swift */; };
 		9295C6231D177349001351CF /* VALMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295C6221D177349001351CF /* VALMapAnnotation.swift */; };
+		92A43CFF1D3CA0C400DB1D7B /* VALEventCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A43CFE1D3CA0C400DB1D7B /* VALEventCache.swift */; };
 		92C9B4941D15D8320031CF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4931D15D8320031CF55 /* AppDelegate.swift */; };
 		92C9B4961D15D8320031CF55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9B4951D15D8320031CF55 /* ViewController.swift */; };
 		92C9B4991D15D8320031CF55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C9B4971D15D8320031CF55 /* Main.storyboard */; };
@@ -33,12 +38,17 @@
 /* Begin PBXFileReference section */
 		46C8B61AB13E2232E110EF03 /* Pods-Vallient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vallient.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vallient/Pods-Vallient.release.xcconfig"; sourceTree = "<group>"; };
 		76D98300BA7C3AA69998C4CE /* Pods-Vallient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vallient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vallient/Pods-Vallient.debug.xcconfig"; sourceTree = "<group>"; };
+		92014A3F1D3B2F2500A5EE66 /* VALCompanyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCompanyEventsViewController.swift; sourceTree = "<group>"; };
+		92014A421D3B319300A5EE66 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		92014A431D3B319300A5EE66 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		92014A481D3B4E1E00A5EE66 /* VALMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALMethods.swift; sourceTree = "<group>"; };
 		9215BF2E1D1FC357005FF212 /* VALFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALFilterViewController.swift; sourceTree = "<group>"; };
 		9215BF331D205D80005FF212 /* VALCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALCoreDataStack.swift; sourceTree = "<group>"; };
 		9215BF361D2064A4005FF212 /* Companies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Companies.xcdatamodel; sourceTree = "<group>"; };
 		9215BF381D20681B005FF212 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9215BF391D20681B005FF212 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		9295C6221D177349001351CF /* VALMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALMapAnnotation.swift; sourceTree = "<group>"; };
+		92A43CFE1D3CA0C400DB1D7B /* VALEventCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VALEventCache.swift; sourceTree = "<group>"; };
 		92C9B4901D15D8320031CF55 /* Vallient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vallient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C9B4931D15D8320031CF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92C9B4951D15D8320031CF55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +97,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		92014A411D3B2F2D00A5EE66 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				92014A3F1D3B2F2500A5EE66 /* VALCompanyEventsViewController.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		9215BF301D1FC361005FF212 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +119,8 @@
 				9215BF331D205D80005FF212 /* VALCoreDataStack.swift */,
 				9215BF381D20681B005FF212 /* Company+CoreDataProperties.swift */,
 				9215BF391D20681B005FF212 /* Company.swift */,
+				92014A421D3B319300A5EE66 /* Event+CoreDataProperties.swift */,
+				92014A431D3B319300A5EE66 /* Event.swift */,
 				9215BF351D2064A4005FF212 /* Companies.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -112,6 +132,7 @@
 				92D819F91D2B573300FBFB14 /* VALFilterDefaults.swift */,
 				92C9B4AD1D174E200031CF55 /* VALHTTPClient.swift */,
 				92D819FB1D2B751200FBFB14 /* VALCompanyCache.swift */,
+				92A43CFE1D3CA0C400DB1D7B /* VALEventCache.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -148,14 +169,16 @@
 			isa = PBXGroup;
 			children = (
 				92C9B4931D15D8320031CF55 /* AppDelegate.swift */,
+				92014A481D3B4E1E00A5EE66 /* VALMethods.swift */,
 				92C9B4951D15D8320031CF55 /* ViewController.swift */,
 				92D81A001D2CCA8900FBFB14 /* VALBasicInfoCell.swift */,
 				92C9B4A51D15EB0D0031CF55 /* VALTableView.swift */,
 				9295C6221D177349001351CF /* VALMapAnnotation.swift */,
 				9215BF301D1FC361005FF212 /* Filter */,
 				928E27B91D1F1B9C00F75EF3 /* Company Details */,
+				92014A411D3B2F2D00A5EE66 /* Events */,
 				928E27B81D1F1B7B00F75EF3 /* Model */,
-				92D819FF1D2CC12000FBFB14 /* Extensinos */,
+				92D819FF1D2CC12000FBFB14 /* Extensions */,
 				9215BF3C1D206845005FF212 /* Core Data */,
 				92C9B4971D15D8320031CF55 /* Main.storyboard */,
 				92C9B49A1D15D8320031CF55 /* Assets.xcassets */,
@@ -165,12 +188,12 @@
 			path = Vallient;
 			sourceTree = "<group>";
 		};
-		92D819FF1D2CC12000FBFB14 /* Extensinos */ = {
+		92D819FF1D2CC12000FBFB14 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				92D819FD1D2CC11300FBFB14 /* UIColor+Vallient.swift */,
 			);
-			name = Extensinos;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +320,10 @@
 			files = (
 				92C9B4961D15D8320031CF55 /* ViewController.swift in Sources */,
 				9215BF3A1D20681B005FF212 /* Company+CoreDataProperties.swift in Sources */,
+				92014A491D3B4E1E00A5EE66 /* VALMethods.swift in Sources */,
 				9215BF2F1D1FC357005FF212 /* VALFilterViewController.swift in Sources */,
 				92C9B4941D15D8320031CF55 /* AppDelegate.swift in Sources */,
+				92014A451D3B319300A5EE66 /* Event.swift in Sources */,
 				92C9B4AA1D161AA90031CF55 /* VALCompanyDetailView.swift in Sources */,
 				92C9B4AE1D174E200031CF55 /* VALHTTPClient.swift in Sources */,
 				9215BF341D205D80005FF212 /* VALCoreDataStack.swift in Sources */,
@@ -306,10 +331,13 @@
 				92D819FE1D2CC11300FBFB14 /* UIColor+Vallient.swift in Sources */,
 				9295C6231D177349001351CF /* VALMapAnnotation.swift in Sources */,
 				9215BF371D2064A4005FF212 /* Companies.xcdatamodeld in Sources */,
+				92014A441D3B319300A5EE66 /* Event+CoreDataProperties.swift in Sources */,
 				92D81A011D2CCA8900FBFB14 /* VALBasicInfoCell.swift in Sources */,
+				92A43CFF1D3CA0C400DB1D7B /* VALEventCache.swift in Sources */,
 				9215BF3B1D20681B005FF212 /* Company.swift in Sources */,
 				92D819FA1D2B573300FBFB14 /* VALFilterDefaults.swift in Sources */,
 				92C9B4A61D15EB0D0031CF55 /* VALTableView.swift in Sources */,
+				92014A401D3B2F2500A5EE66 /* VALCompanyEventsViewController.swift in Sources */,
 				92C9B4AC1D163C8D0031CF55 /* VALCompanyImageCell.swift in Sources */,
 				92D819FC1D2B751200FBFB14 /* VALCompanyCache.swift in Sources */,
 			);

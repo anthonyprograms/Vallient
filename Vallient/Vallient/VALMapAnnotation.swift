@@ -28,7 +28,7 @@ class VALMapAnnotation: MKPointAnnotation {
         
         if let latitude = company["latitude"] as? NSNumber {
             if let longitude = company["longitude"] as? NSNumber {
-                self.coordinate = CLLocationCoordinate2DMake(Double(longitude), Double(latitude))
+                self.coordinate = CLLocationCoordinate2DMake(Double(latitude), Double(longitude))
             }
         }
     }

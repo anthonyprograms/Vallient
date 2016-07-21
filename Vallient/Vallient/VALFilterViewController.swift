@@ -49,7 +49,10 @@ class VALFilterViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true)
         
         let applyButton = UIBarButtonItem(title: "Apply", style: .Done, target: self, action: #selector(VALFilterViewController.applyFilters))
-        self.navigationItem.rightBarButtonItem = applyButton
+        self.navigationItem.leftBarButtonItem = applyButton
+        
+        let clearButton = UIBarButtonItem(title: "Clear", style: .Done, target: self, action: #selector(VALFilterViewController.clearFilters))
+        self.navigationItem.rightBarButtonItem = clearButton
         
        (cityFilters, valuationFilters, statusFilters) = VALFilterDefaults.getAllFilters()
     }
@@ -58,6 +61,14 @@ class VALFilterViewController: UIViewController {
         VALFilterDefaults.saveFilters(cityFilters, valuationFilters: valuationFilters, statusFilters: statusFilters)
         
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func clearFilters() {
+        cityFilters = []
+        valuationFilters = []
+        statusFilters = []
+        
+        tableView.reloadData()
     }
 }
 
@@ -73,7 +84,7 @@ extension VALFilterViewController: UITableViewDelegate, UITableViewDataSource {
         let textLabel = UILabel(frame: headerView.frame)
         textLabel.text = itemSections[section]
         textLabel.textColor = UIColor.whiteColor()
-        textLabel.font = UIFont(name: "Helvetica-Bold", size: 24)
+        textLabel.font = UIFont(name: "Helvetica-Bold", size: 26)
         textLabel.textAlignment = .Center
         headerView.addSubview(textLabel)
         
@@ -96,7 +107,7 @@ extension VALFilterViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .None
         cell.backgroundColor = .clearColor()
-        
+        cell.textLabel?.font = UIFont(name: "Helvetica-Light", size: 20)
         if indexPath.section == 0 {
             // Remove current check mark
             // Place on new place

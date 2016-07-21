@@ -12,6 +12,7 @@ import Haneke
 import Kingfisher
 import SafariServices
 import CoreData
+import MessageUI
 
 class ViewController: UIViewController {
     
@@ -23,6 +24,9 @@ class ViewController: UIViewController {
     var cityFilters: NSMutableArray! = []
     var valuationFilters: NSMutableArray! = []
     var statusFilters: NSMutableArray! = []
+    
+    var regionCenter = CLLocationCoordinate2DMake(37.7759, -122.4125)
+    var regionSpan = MKCoordinateSpanMake(4/69.0, 4/69.0)
     
     var managedContext: NSManagedObjectContext!
     var madeNetworkRequest = false
@@ -64,15 +68,26 @@ class ViewController: UIViewController {
 //        view.addSubview(activityIndicator)
         
         let filterButton = UIBarButtonItem(title: "Filter", style: .Done, target: self, action: #selector(ViewController.filterCompanies))
-        self.navigationItem.rightBarButtonItem = filterButton
+        self.navigationItem.leftBarButtonItem = filterButton
+        
+        let submitButton = UIBarButtonItem(title: "Submit", style: .Done, target: self, action: #selector(ViewController.submitAction))
+        self.navigationItem.rightBarButtonItem = submitButton
 //        activityIndicator.startAnimating()
         
         
-        mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, 5*self.view.frame.size.height/8)
-        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(37.7749, -122.4194), span: MKCoordinateSpanMake(5/69.0, 5/69.0)), animated: false)
+        mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        mapView.setRegion(MKCoordinateRegion(center: regionCenter, span: regionSpan), animated: false)
         mapView.delegate = self
 //        activityIndicator.stopAnimating()
         view.addSubview(mapView)
+        
+        let tableViewPopUpButton = UIButton(frame: CGRectMake(0, mapView.frame.height-40, view.frame.size.width, 40))
+        tableViewPopUpButton.backgroundColor = .clearColor()
+        tableViewPopUpButton.setTitle("Up", forState: .Normal)
+        tableViewPopUpButton.titleLabel?.font = UIFont(name: "Helvetica", size: 22)
+        tableViewPopUpButton.setTitleColor(.blackColor(), forState: .Normal)
+        tableViewPopUpButton.addTarget(self, action: #selector(ViewController.popUpTableView), forControlEvents: .TouchUpInside)
+        view.addSubview(tableViewPopUpButton)
     
         tableView.frame = view.bounds
         tableView.registerClass(VALBasicInfoCell.self, forCellReuseIdentifier: "Cell")
@@ -103,11 +118,8 @@ class ViewController: UIViewController {
         titleView.addGestureRecognizer(recognizer)
     }
     
-    @objc private func titleWasTapped() {
-        UIView.animateWithDuration(0.5) {
-            self.tableView.contentInset = UIEdgeInsetsMake(self.mapView.frame.size.height-40, 0, 0, 0)
-        }
-        print("Done")
+    func titleWasTapped() {
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: true)
     }
     
     @objc private func filterCompanies() {
@@ -117,11 +129,22 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(filterViewController, animated: true)
     }
     
+    func popUpTableView() {
+        var row: Int
+        if self.companies.count < 5 {
+            row = self.companies.count-1
+        } else {
+            row = 5
+        }
+        
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), atScrollPosition: .Bottom, animated: true)
+    }
+    
     func getCompaniesAndUpdateView() {
-        if let companyData = self.companyCache.getCompanies() {
+        if let companyData = self.companyCache.getCompanies(regionCenter, span: regionSpan) {
             self.companies = companyData
             self.tableView.reloadData()
-            
+
             dispatch_async(dispatch_get_main_queue()) {
                 self.annotateMap(companyData)
             }
@@ -243,6 +266,17 @@ extension ViewController: MKMapViewDelegate {
             }
         }
     }
+    
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        regionCenter = mapView.region.center
+        regionSpan = mapView.region.span
+        
+        let timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.getCompaniesAndUpdateView), userInfo: nil, repeats: false)
+        timer.fire()
+        
+//        self.getCompaniesAndUpdateView()
+    }
 }
 
 extension ViewController: VALCompanyDetailViewDelegate {
@@ -266,6 +300,13 @@ extension ViewController: VALCompanyDetailViewDelegate {
             }
         }
     }
+    
+    func showCompanyEvents(name: String) {
+        let companyEventsViewController = VALCompanyEventsViewController(companyName: name)
+        companyEventsViewController.managedContext = self.managedContext
+        
+        self.navigationController?.pushViewController(companyEventsViewController, animated: true)
+    }
 }
 
 extension ViewController: SFSafariViewControllerDelegate {
@@ -277,5 +318,37 @@ extension ViewController: SFSafariViewControllerDelegate {
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension ViewController: MFMailComposeViewControllerDelegate {
+    func submitAction() {
+        let emailTitle = "Submission"
+        let messageBody = "I have a company and/or event I want to be added:"
+        let toRecipents = ["anthonygreen274@gmail.com"]
+        
+        let mc: MFMailComposeViewController = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        mc.setSubject(emailTitle)
+        mc.setMessageBody(messageBody, isHTML: false)
+        mc.setToRecipients(toRecipents)
+        
+        self.presentViewController(mc, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
+        switch result {
+        case MFMailComposeResultCancelled:
+            print("Mail cancelled")
+        case MFMailComposeResultSaved:
+            print("Mail saved")
+        case MFMailComposeResultSent:
+            print("Mail sent")
+        case MFMailComposeResultFailed:
+            print("Mail sent failure: \(error!.localizedDescription)")
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

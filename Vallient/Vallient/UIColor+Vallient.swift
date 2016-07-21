@@ -20,4 +20,8 @@ extension UIColor {
     class func vallientTextColor() -> UIColor {
         return UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
     }
+    
+    class func vallientLinkColor() -> UIColor {
+        return UIColor(red: 63/255, green: 91/255, blue: 225/255, alpha: 1)
+    }
 }

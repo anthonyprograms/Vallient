@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MapKit
 
 class VALCompanyCache {
     
@@ -18,14 +19,22 @@ class VALCompanyCache {
         self.managedContext = managedContext
     }
     
-    func getCompanies() -> [NSDictionary]? {
+    func getCompanies(location: CLLocationCoordinate2D, span: MKCoordinateSpan) -> [NSDictionary]? {
         let companyFetch = NSFetchRequest(entityName: companyEntityName)
         companyFetch.returnsObjectsAsFaults = true
         companyFetch.resultType = .DictionaryResultType
         companyFetch.fetchBatchSize = 15
         
+        let minLatitude = location.latitude - span.latitudeDelta
+        let maxLatitude = location.latitude + span.latitudeDelta
+        let minLongitude = location.longitude - span.longitudeDelta
+        let maxLongitude = location.longitude + span.longitudeDelta
+        let regionalPredicate = NSPredicate(format: "latitude >= %f AND latitude <= %f AND longitude >= %f AND longitude <= %f", minLatitude, maxLatitude, minLongitude, maxLongitude)
+        
         if let compoundPredicate = VALFilterDefaults.predicateFromFilters() {
-            companyFetch.predicate = compoundPredicate
+            companyFetch.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [regionalPredicate, compoundPredicate])
+        } else {
+            companyFetch.predicate = regionalPredicate
         }
         
         do {
@@ -42,15 +51,17 @@ class VALCompanyCache {
     }
     
     func saveCompany(companies: [NSDictionary]) {
+        let companyEntity = NSEntityDescription.entityForName(companyEntityName, inManagedObjectContext: managedContext)
+        
         for companyData in companies {
-            let companyEntity = NSEntityDescription.entityForName(companyEntityName, inManagedObjectContext: managedContext)
             let company = Company(entity: companyEntity!, insertIntoManagedObjectContext: managedContext)
             company.name = "\(companyData["name"]!)"
             company.info = "\(companyData["info"]!)"
             company.imageUrl = "\(companyData["imageUrl"]!)"
             company.address = "\(companyData["address"]!)"
-            company.latitude = companyData["coordinates"]![0] as? NSNumber
-            company.longitude = companyData["coordinates"]![1] as? NSNumber
+            let coordinates = companyData["coordinates"] as! Array<NSNumber>
+            company.latitude = coordinates[1] as? NSNumber
+            company.longitude = coordinates[0] as? NSNumber
             company.site = "\(companyData["site"]!)"
             company.status = "\(companyData["type"]!)"
             company.tag = "\(companyData["tag"]!)"
@@ -86,10 +97,10 @@ class VALCompanyCache {
         let companyFetch = NSFetchRequest(entityName: companyEntityName)
         companyFetch.returnsObjectsAsFaults = true
         companyFetch.resultType = .DictionaryResultType
-        
-//        companyFetch.predicate = NSPredicate(format: "name != %@ AND tag == %@", companyName, companyTag)
-        companyFetch.predicate = NSPredicate(format: "name != %@", companyName)
         companyFetch.fetchBatchSize = 6
+        
+        companyFetch.predicate = NSPredicate(format: "name != %@ AND tag == %@", companyName, companyTag)
+//        companyFetch.predicate = NSPredicate(format: "name != %@", companyName)
         
         do {
             let results = try managedContext.executeFetchRequest(companyFetch)

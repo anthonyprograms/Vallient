@@ -15,6 +15,7 @@ protocol VALCompanyDetailViewDelegate {
     func openWebSite(website: String)
     func closeCompanyDetailView()
     func relatedCompanySelected(company: NSDictionary)
+    func showCompanyEvents(name: String)
 }
 
 class VALCompanyDetailView: UIView {
@@ -67,7 +68,7 @@ class VALCompanyDetailView: UIView {
         self.backgroundColor = UIColor(white: 0, alpha: 0.6)
         
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
-        blurView.frame = CGRectMake(0, 0, self.frame.size.width-40, 2*self.frame.size.height/3)
+        blurView.frame = CGRectMake(0, 0, self.frame.size.width-20, 3*self.frame.size.height/4)
         blurView.center = self.center
         blurView.layer.cornerRadius = 18.0
         blurView.layer.masksToBounds = true
@@ -81,6 +82,7 @@ class VALCompanyDetailView: UIView {
         tableView.bounces = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
         blurView.addSubview(tableView)
         
         let closeButton = UIButton(frame: CGRectMake(blurView.frame.maxX-25.0, blurView.frame.origin.y-20, 40, 40))
@@ -115,17 +117,9 @@ class VALCompanyDetailView: UIView {
         self.removeFromSuperview()
     }
     
-    func mapToLocation(){
-        let regionDistance:CLLocationDistance = 10000
-        let regionSpan = MKCoordinateRegionMakeWithDistance(self.coordinates, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: self.coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = self.name
-        mapItem.openInMapsWithLaunchOptions(options)
+    func displayCompanyEvents() {
+        delegate?.showCompanyEvents(name)
+        removeFromSuperview()
     }
 }
 
@@ -135,7 +129,7 @@ extension VALCompanyDetailView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -171,7 +165,7 @@ extension VALCompanyDetailView: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 {
                 cell.textLabel?.text = site
                 cell.textLabel?.font = UIFont(name: "Helvetica", size: 20)
-                cell.textLabel?.textColor = UIColor(red: 63/255, green: 91/255, blue: 225/255, alpha: 1)
+                cell.textLabel?.textColor = UIColor.vallientLinkColor()
             } else if indexPath.row == 3 {
                 cell.textLabel?.text = address
             } else if indexPath.row == 4 {
@@ -179,6 +173,9 @@ extension VALCompanyDetailView: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 5 {
                 cell.textLabel?.text = "Go"
                 cell.backgroundColor = UIColor(red: 61/255, green: 219/255, blue: 91/255, alpha: 1)
+            } else if indexPath.row == 6 {
+                cell.textLabel?.text = "Events"
+                cell.backgroundColor = UIColor(red: 0/255, green: 138/255, blue: 230/255, alpha: 1)
             }
             
             return cell
@@ -190,12 +187,12 @@ extension VALCompanyDetailView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            print("Full screen image")
-        } else if indexPath.row == 2 {
+        if indexPath.row == 2 {
             delegate?.openWebSite(site)
         } else if indexPath.row == 5 {
-            self.mapToLocation()
+            VALMethods.mapToLocation(self.name, coordinates: self.coordinates)
+        } else if indexPath.row == 6 {
+            displayCompanyEvents()
         }
     }
 }

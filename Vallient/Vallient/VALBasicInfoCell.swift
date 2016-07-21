@@ -30,7 +30,7 @@ class VALBasicInfoCell: UITableViewCell {
         logoImageView.autoresizingMask = .None
         addSubview(logoImageView)
         
-        nameLabel = UILabel(frame: CGRectMake(logoImageView.frame.maxX+10, 5, frame.size.width, 28))
+        nameLabel = UILabel(frame: CGRectMake(logoImageView.frame.maxX+10, 5, frame.size.width-logoImageView.frame.maxX-10, 28))
         nameLabel.textColor = UIColor.vallientTextColor()
         nameLabel.textAlignment = .Left
         nameLabel.font = UIFont(name: "Helvetica", size: 24)
